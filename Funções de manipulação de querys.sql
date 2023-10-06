@@ -1,0 +1,67 @@
+FUNÇÕES DE MANIPULAÇÃO DE CARACTERES
+
+==========CONVERSORES DE CARACTERES  =================
+  --       LOWER - UPPER - INITCAP 
+         
+=========== FUNÇÕES DE MANIPULAÇÃO DE FUNÇÃO =========
+
+--CONCAT - SUBSTR - LENGTH - INSTR - LPAD - RPAD - TRIM - REPLACE-
+=========================================================================
+
+
+SELECT emp.employee_id,emp.First_name,emp.Last_name,emp.department_id
+  FROM employees emp
+ WHERE emp.last_name = 'KING';
+ 
+ ------------- UPPER E LOWER -----------
+ ------------ SELECT ONDE PROCURA PELA STRING CO LETRAS MINUSCULAS E TAMBEM DA PARA TRADUZIR PARA NOMES ----
+ 
+ SELECT emp.employee_id,UPPER (emp.First_name),emp.Last_name,emp.department_id
+  FROM employees emp
+ WHERE UPPER (emp.last_name) = 'KING';
+ 
+  SELECT emp.employee_id,emp.First_name,emp.Last_name,emp.department_id
+  FROM employees emp
+ WHERE LOWER (emp.last_name) = 'KING';
+ 
+ ------------- FUNÇÃO DE MANIPULAÇÃO
+
+-- CONCAT - COMO NOME JA DIZ ELE CONCATENA DUAS STRINGS 
+
+SELECT  CONCAT ('CURSO : ','INTRODUÇÃO ORACLE 19c')
+  FROM DUAL;
+
+-- SUBSTR : ELE BUSCA EM SUA QUERY O LOCAL E LOGO APOS QUANTAS CASAS VOCÊ QUER QUE TRAGA--
+
+SELECT SUBSTR ('Introdução ao Oracle 19c',1,11 ) --- AQUI ELE BUSCOU APARTIR DA PRIMEIRA CASA ATÉ A CASA 11 (O ESPAÇO EM BRANCO TAMBEM É)
+  FROM DUAL;
+  
+--LENGHT : LÊ A QUERY E CONTA QUANTOS CARACTERES
+
+SELECT LENGTH ('DAVID É FODA')
+   FROM DUAL;
+
+--INSTR : INDICA A POSIÇÃO DO QUE É REQUERIDO EM UMA QUERY
+ --- SE ELE NAO ACHAR NADA ELE VOLTA 0 ----
+SELECT INSTR ('DAVID COMPUTADOR','VI')
+  FROM DUAL;
+  
+---- TODOS JUNTOS 
+
+SELECT CONCAT ('DAVID PENSOU : ','ISSO É NORMAL'),SUBSTR('DAVID PENSOU : ANORMAL',1,20),
+       LENGTH('DAVID PENSOU : ANORMAL'),INSTR('DAVID PENSOU : ANORMAL','ID')
+    FROM DUAL;
+
+========== LPAD E RPAD ===========
+
+SINTAX DOS MESMO É O SEGUINTE ARGUMENTO,QUANTIDADE E O QUE SE DEVE COLOCAR
+
+SELECT EMP.FIRST_NAME,LPAD(EMP.FIRST_NAME,20,' '),RPAD(EMP.FIRST_NAME,20,' ')
+  FROM EMPLOYEES EMP
+  
+  ======= REPLACE ===========
+  SINTAX DO MESMO É O SEGUINTE ARGUMENTO,O QUE VOCÊ QUER ALTERAR E O SERA APRESENTADO
+  
+  SELECT JO.JOB_TITLE,REPLACE(JO.JOB_TITLE,'President','PRESIDENTE') CARGO
+    FROM JOBS JO
+   WHERE JO.JOB_TITLE = 'President'
