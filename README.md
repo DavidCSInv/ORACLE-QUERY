@@ -1,0 +1,2 @@
+# ORACLE-QUERY
+Estudo de SQL
