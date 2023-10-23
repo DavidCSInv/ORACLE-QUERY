@@ -11,7 +11,6 @@ SELECT employee_id, job_id, hire_date, salary
 FROM   employees
 WHERE  job_id = 'IT_PROG'
 ORDER BY employee_id;
-
 -- Utilizando o operador UNION ALL
 
 Já o union all irá trazer ambos os resultado com suas duplicidades ou não.
