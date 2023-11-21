@@ -1,0 +1,8 @@
+ ========= BLOCOS DE ANINHAMENTO E ESCOPO DE IDENTIFICADOR (VARIAVEIS E CONSTANTES) ==================
+ 
+ SET SERVEROUTPUT ON;
+ 
+ DECLARE 
+       VBLOCO1 VARCHAR2(20) := 'Bloco 1';
+  BEGIN 
+       DBMS_OUTPUT.PUT_LINE ('Referenciando variavel ') 
