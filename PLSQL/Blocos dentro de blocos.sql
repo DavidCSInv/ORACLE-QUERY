@@ -3,7 +3,7 @@
  SET SERVEROUTPUT ON;
  
  DECLARE 
-       VBLOCO1 VARCHAR2(20) := 'BANANA';
+       VBLOCO1 VARCHAR2(20) := 'Banana';
   BEGIN 
        DBMS_OUTPUT.PUT_LINE ('Referenciando variavel do bloco 1 =  ' || VBLOCO1);
        DECLARE
