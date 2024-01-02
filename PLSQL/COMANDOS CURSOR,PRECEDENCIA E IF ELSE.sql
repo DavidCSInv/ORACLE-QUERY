@@ -32,6 +32,38 @@ END;
 ACCEPT PDEPARMENT_ID PROMPT 'Digite o id do departmaneto'
    DECLARE 
    VPERCENTUAL       NUMBER(3);
+   VNOMEDEPART      VARCHAR(20);
+   VDEPARTMENT_ID   EMPLOYEES.EMPLOYEE_ID%TYPE := &PDEPARMENT_ID;
+BEGIN 
+    IF VDEPARTMENT_ID  = 80
+    THEN
+     VPERCENTUAL := 10;
+     VNOMEDEPART := 'SALES';    -- SALES
+     ELSE 
+         IF VDEPARTMENT_ID  = 20
+    THEN 
+         VPERCENTUAL := 15;
+         VNOMEDEPART := 'MARKETING';--MARKETING
+    ELSE 
+    IF VDEPARTMENT_ID  = 60
+    THEN 
+        VPERCENTUAL := 20; --IT
+        VNOMEDEPART := 'IT'; 
+            ELSE 
+                VPERCENTUAL := 5;
+                VNOMEDEPART := 'OUTROS';
+            END IF;
+        END IF;
+    END IF;
+    DBMS_OUTPUT.PUT_LINE ('ID DO DEPARTAMENTO  = ' || VDEPARTMENT_ID);
+    DBMS_OUTPUT.PUT_LINE ('PERCENTUAL DO SETOR = ' || VPERCENTUAL);
+    DBMS_OUTPUT.PUT_LINE ('NOME DO DEPARTAMENTO = ' || VNOMEDEPART);
+    END;
+====================================================================================
+
+ACCEPT PDEPARMENT_ID PROMPT 'Digite o id do departmaneto'
+   DECLARE 
+   VPERCENTUAL       NUMBER(3);
    VDEPARTMENT_ID   EMPLOYEES.EMPLOYEE_ID%TYPE := &PDEPARMENT_ID;
 BEGIN 
     IF VDEPARTMENT_ID = 90
