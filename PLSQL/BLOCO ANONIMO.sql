@@ -1,7 +1,7 @@
  =============== BLOCO ANONIMO =================
  
  
- - DECLARE - BEGIN - EXCEPTION-
+- DECLARE - BEGIN - EXCEPTION-
  
  DECLARE - CONTEM A DECLARA??O DE VARIAVEIS,CONSTANTES,CURSORES E EXCE??ES DEFINIDAS PELO USUARIO - PARA PROCEDURE ? OPCIONAL
  
@@ -10,11 +10,6 @@
  EXCEPTION - Contem a?oes a serem executadas para tratamento das exce??es que forem disparadas pelos comandos na se??o BEGIN
  
  ===========================================================================================================================================
-
-
-
-
-
  
  DBMS_OUTPUT - PACKAGE PRE-FEITA DO BANCO DE DADOS QUE PODE IMPRIMIR O RESULTADO DA PROCEDURE(Mensagens ou para depurar)
 

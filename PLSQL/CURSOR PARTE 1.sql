@@ -1,0 +1,57 @@
+
+SET SERVEROUTPUT ON;
+SET VERIFY OFF;
+
+DECLARE
+
+   CURSOR BANANA_CURSOR IS 
+
+     SELECT *
+      FROM EMPLOYEES; --Declarando cursor
+      
+      BANANA_RECORD BANANA_CURSOR%ROWTYPE;
+    
+      BEGIN 
+    /*INICIANDO*/
+       OPEN BANANA_CURSOR;
+           LOOP  -- LOOP BASICO
+            FETCH BANANA_CURSOR
+             INTO BANANA_RECORD;
+             
+             EXIT WHEN BANANA_CURSOR%notfound;
+    
+    DBMS_OUTPUT.PUT_LINE (BANANA_RECORD.EMPLOYEE_ID || ' - ' || BANANA_RECORD.FIRST_NAME);
+    END LOOP;
+    CLOSE BANANA_CURSOR; --CLose do cursor
+end;
+       
+       
+       === CURSOR COM LOOP WHILE ==
+       
+       
+DECLARE
+
+   CURSOR BANANA_CURSOR IS 
+
+     SELECT *
+      FROM EMPLOYEES; --Declarando cursor
+      
+      BANANA_RECORD BANANA_CURSOR%ROWTYPE;
+    
+      BEGIN 
+    /*INICIANDO*/
+       OPEN BANANA_CURSOR;
+      FETCH BANANA_CURSOR
+       INTO BANANA_RECORD;
+     
+      WHILE BANANA_CURSOR%FOUND LOOP            
+    
+       DBMS_OUTPUT.PUT_LINE (BANANA_RECORD.EMPLOYEE_ID || ' - ' || BANANA_RECORD.FIRST_NAME);
+    
+      FETCH BANANA_CURSOR
+       INTO BANANA_RECORD;
+    
+        END LOOP;
+    CLOSE BANANA_CURSOR; --CLose do cursor
+end;
+       

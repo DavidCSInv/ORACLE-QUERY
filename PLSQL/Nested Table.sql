@@ -35,3 +35,28 @@ BEGIN
   DBMS_OUTPUT.PUT_LINE ('NESTED TABLE : INDICE = '|| TO_CHAR(i) || ', Valor = '|| TO_CHAR(Numero_table(i)));
   end loop;
 end;
+
+========== com BULK =========================
+
+DECLARE 
+    TYPE EMPLOYEES_TABLE_TYPE IS TABLE OF EMPLOYEES%ROWTYPE;
+    EMPLOYEES_TABLE EMPLOYEES_TABLE_TYPE := EMPLOYEES_TABLE_TYPE();
+    
+BEGIN
+    SELECT *
+    BULK COLLECT INTO EMPLOYEES_TABLE
+    FROM EMPLOYEES;
+  -- ARMAZENA NUMEROS 1 A 10 EM UM ASSOCIATIVE ARRAY
+  FOR i IN EMPLOYEES_TABLE.FIRST .. EMPLOYEES_TABLE.LAST
+  LOOP
+  DBMS_OUTPUT.PUT_LINE (EMPLOYEES_TABLE(i).employee_id || ' ' || 
+                        EMPLOYEES_TABLE(i).first_name    );
+  end loop;
+end;
+
+
+
+
+
+
+
