@@ -28,3 +28,22 @@ DECLARE
     
     END LOOP;--CLose do cursor
 end;
+
+===== cursor com parametros ====
+//o intuito deste aqui é dar um parametro para o cursor,dando seus tipos no cursor e o parametro no open
+DECLARE
+   CURSOR BANANA_CURSOR(PDEPARTMENT_ID NUMBER,
+                               PJOB_ID VARCHAR2) IS 
+
+     SELECT *
+      FROM EMPLOYEES
+      WHERE DEPARTMENT_ID = PDEPARTMENT_ID 
+        AND JOB_ID = PJOB_ID;--Declarando cursor
+      BEGIN      
+        FOR BANANA_RECORD IN BANANA_CURSOR (60,'IT_PROG') LOOP    -- AQUI VOCÊ TA PASSANDO UM WHERE BASICAMENTE
+        
+    /*QUANDO VOCÊ FOR LOOP NÃO É NECESSARIO ABRIR CURSOR POIS É IMPLICITO QUE JÁ ESTA SENDO ABERTO E O FETCH NO LOOP*/    
+        DBMS_OUTPUT.PUT_LINE (BANANA_RECORD.EMPLOYEE_ID || ' - ' || BANANA_RECORD.FIRST_NAME);
+    
+    END LOOP;--CLose do cursor
+end;
